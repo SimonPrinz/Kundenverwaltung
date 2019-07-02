@@ -1,4 +1,4 @@
-﻿using Kundenverwaltung.Data;
+using Kundenverwaltung.Data;
 using Kundenverwaltung.Data.Models;
 using LinqToDB;
 using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace Kundenverwaltung.Views
 
         private async void RefreshView()
         {
-            List<Kunde> lKunden = await _Database.Kunden.Where(k => !k.Deleted).Take(() => 10).ToListAsync();
+            List<Kunde> lKunden = await _Database.Kunden.Take(() => 10).ToListAsync();
             _SearchBindingSource.DataSource = lKunden;
         }
 
@@ -68,7 +68,10 @@ namespace Kundenverwaltung.Views
                     DialogResult lResult = tEditKunde.ShowDialog();
                     if (lResult == DialogResult.OK)
                     {
-                        _Database.Update(lKunde);
+                        if (lResult.Kunde == null)
+                            _Database.Delete(lKunde);
+                        else
+                            _Database.Update(lKunde);
                         RefreshView();
                     }
                 }
@@ -90,11 +93,10 @@ namespace Kundenverwaltung.Views
 
             List<Kunde> lKunden = await _Database.Kunden.Where(
                 k =>
-                    (k.Firmenname.Contains(lSuche) ||
+                    k.Firmenname.Contains(lSuche) ||
                     k.Ansprechpartner.Contains(lSuche) ||
                     k.Ort.Contains(lSuche) ||
-                    k.PLZ == lSuche) &&
-                    !k.Deleted).Take(() => 10).ToListAsync();
+                    k.PLZ == lSuche).Take(() => 10).ToListAsync();
             _SearchBindingSource.DataSource = lKunden;
         }
     }

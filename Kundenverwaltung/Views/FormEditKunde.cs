@@ -1,4 +1,4 @@
-﻿using Kundenverwaltung.Data.Models;
+using Kundenverwaltung.Data.Models;
 using System.Windows.Forms;
 
 namespace Kundenverwaltung.Views
@@ -46,7 +46,7 @@ namespace Kundenverwaltung.Views
             DialogResult lResult = MessageBox.Show(this, "Sind sie sicher das Sie diesen Kunden löschen möchten?", "Kunde löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (lResult == DialogResult.Yes)
             {
-                Kunde.Deleted = true;
+                Kunde = null;
                 DialogResult = DialogResult.OK;
                 Close();
             }

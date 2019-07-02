@@ -1,4 +1,4 @@
-﻿using LinqToDB.Mapping;
+using LinqToDB.Mapping;
 using System.ComponentModel;
 
 namespace Kundenverwaltung.Data.Models
@@ -8,10 +8,6 @@ namespace Kundenverwaltung.Data.Models
     {
         [PrimaryKey, Identity]
         public int Id { get; set; }
-
-        [Column]
-        [Browsable(false)]
-        public bool Deleted { get; set; }
 
         [Column]
         public string Firmenname { get; set; }
