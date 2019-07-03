@@ -68,7 +68,7 @@ namespace Kundenverwaltung.Views
                     DialogResult lResult = tEditKunde.ShowDialog();
                     if (lResult == DialogResult.OK)
                     {
-                        if (lResult.Kunde == null)
+                        if (tEditKunde.Kunde == null)
                             _Database.Delete(lKunde);
                         else
                             _Database.Update(lKunde);
