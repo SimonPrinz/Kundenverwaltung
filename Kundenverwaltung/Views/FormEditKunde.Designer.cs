@@ -1,4 +1,6 @@
-﻿namespace Kundenverwaltung.Views
+﻿using Kundenverwaltung.Components;
+
+namespace Kundenverwaltung.Views
 {
     partial class FormEditKunde
     {
@@ -32,7 +34,7 @@
             this.grbBasisdaten = new System.Windows.Forms.GroupBox();
             this.txbOrt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txbPLZ = new System.Windows.Forms.TextBox();
+            this.txbPLZ = new NumberBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbAnsprechpartner = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -195,7 +197,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEditKunde";
-            this.Text = "Kunde";
+            this.Text = "s";
             this.TopMost = true;
             this.grbBasisdaten.ResumeLayout(false);
             this.grbBasisdaten.PerformLayout();
@@ -211,7 +213,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbOrt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txbPLZ;
+        private NumberBox txbPLZ;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbAnsprechpartner;
         private System.Windows.Forms.Label label2;
