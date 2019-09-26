@@ -1,21 +1,18 @@
-using LinqToDB.Mapping;
-using System.ComponentModel;
+using System;
 
 namespace Kundenverwaltung.Data.Models
 {
-    [Table]
+    [Serializable]
     public class Kunde
     {
-        [PrimaryKey, Identity]
         public int Id { get; set; }
-
-        [Column]
+        
         public string Firmenname { get; set; }
-        [Column]
+        
         public string Ansprechpartner { get; set; }
-        [Column]
+        
         public string PLZ { get; set; }
-        [Column]
+        
         public string Ort { get; set; }
     }
 }
