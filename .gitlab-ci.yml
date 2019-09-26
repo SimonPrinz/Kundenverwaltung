@@ -8,10 +8,10 @@ build:release:
     only:
         - master
     script:
-        - xbuild "Kundenverwaltung.sln" /p:Configuration=Release /p:Platform=x86
+        - msbuild "Kundenverwaltung.sln" /p:Configuration=Release /p:Platform="Any CPU"
 
 build:debug:
     stage: build
     script:
-        - xbuild "Kundenverwaltung.sln" /p:Configuration=Debug /p:Platform=x86
+        - msbuild "Kundenverwaltung.sln" /p:Configuration=Debug /p:Platform="Any CPU"
 
