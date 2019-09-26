@@ -3,20 +3,15 @@ image: mono
 stages:
     - build
 
-before_script:
-    - nuget restore -NonInteractive
-
 build:release:
     stage: build
     only:
         - master
     script:
-        - xbuild "Web-Page-Screensaver.sln" /p:Configuration=Release /p:Platform=x86
-        - nuget pack GitLab.NET.nuspec
+        - xbuild "Kundenverwaltung.sln" /p:Configuration=Release /p:Platform=x86
 
 build:debug:
     stage: build
     script:
-        - xbuild "Web-Page-Screensaver.sln" /p:Configuration=Debug /p:Platform=x86
-        - nuget pack GitLab.NET.nuspec
+        - xbuild "Kundenverwaltung.sln" /p:Configuration=Debug /p:Platform=x86
 
